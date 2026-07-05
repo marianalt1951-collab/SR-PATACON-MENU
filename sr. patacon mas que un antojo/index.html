@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>SR PATACON - menu digital</title>
+
+    <style>
+        /* --- PALETA DE COLORES PREMIUM DE ALTA ILUMINACIÓN --- */
+        :root {
+            --neon-amarillo: #FFEB3B; 
+            --rojo-electrico: #FF2A00;           
+            --oro-precio: #FFC107;           
+            --blanco: #FFFFFF;
+            --bg-negro: #060907;         
+            --bg-card: rgba(20, 24, 21, 0.92); /* Tarjetas sólidas para contraste */
+            --verde-whatsapp: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-negro);
+            color: var(--blanco);
+            padding-top: 155px;    
+            padding-bottom: 100px; 
+            position: relative;
+        }
+
+       body::after {
+    content: "";
+    background-image: url('img/logo-patacon..png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90% auto;
+    background-attachment: fixed;
+    opacity: 0.30;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+            
+
+        /* --- BARRA FLOTANTE SUPERIOR --- */
+        .barra-superior {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0b0e0c;
+            padding: 12px 15px;
+            border-bottom: 3px solid var(--neon-amarillo);
+            box-shadow: 0 0 25px rgba(255, 235, 59, 0.35);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .total-recuadro {
+            font-size: 1.35rem;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(255, 235, 59, 0.3);
+        }
+
+        /* --- CAJA NEQUI CON COMENTARIO DE TRANSFERENCIAS --- */
+        .info-nequi {
+            background: rgba(112, 48, 160, 0.2);
+            border: 2px solid #7030a0;
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            text-align: right;
+            line-height: 1.2;
+            box-shadow: 0 0 10px rgba(112, 48, 160, 0.4);
+        }
+
+        /* --- HEADER CON LOGO PEQUEÑO --- */
+        header {
+            text-align: center;
+            padding: 15px 15px 5px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-pequeno {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 2px solid var(--neon-amarillo);
+            box-shadow: 0 0 15px rgba(255, 235, 59, 0.4);
+        }
+
+        header h1 {
+            color: var(--neon-amarillo);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 12px rgba(255, 235, 59, 0.6);
+        }
+
+        header p {
+            color: var(--oro-precio);
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .contenedor {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- RECUADRO DOMICILIO --- */
+        .caja-domicilio {
+            background-color: var(--bg-card);
+            border-radius: 14px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 235, 59, 0.25);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .caja-domicilio label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 1rem;
+            color: var(--blanco);
+        }
+
+        .input-domicilio {
+            background-color: #000;
+            color: var(--oro-precio);
+            border: 2px solid var(--neon-amarillo);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* --- CATEGORÍAS --- */
+        .titulo-seccion {
+            font-size: 1.3rem;
+            color: var(--blanco);
+            margin: 35px 0 15px 0;
+            border-left: 5px solid var(--rojo-electrico);
+            padding-left: 10px;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(255, 42, 0, 0.5);
+        }
+
+        /* --- TARJETAS DE PRODUCTOS CON CAJITA DE IMAGEN --- */
+        .producto-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255, 235, 59, 0.08);
+            gap: 12px;
+        }
+
+        /* CONTENEDOR DE IMAGEN (Listo para tus fotos fijas) */
+        .producto-img {
+            width: 75px;
+            height: 75px;
+            border-radius: 10px;
+            background-color: #111;
+            border: 1px solid rgba(255, 235, 59, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .producto-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .producto-info {
+            flex: 1;
+        }
+
+        .producto-nombre {
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: var(--blanco);
+        }
+
+        .producto-detalles {
+            font-size: 0.8rem;
+            color: #b5b5b5;
+            margin: 2px 0;
+        }
+
+        .producto-precio {
+            font-size: 1.1rem;
+            color: var(--oro-precio);
+            font-weight: bold;
+        }
+
+        .select-interno {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid var(--neon-amarillo);
+            padding: 5px;
+            border-radius: 6px;
+            margin-top: 5px;
+            width: 100%;
+            font-size: 0.85rem;
+        }
+
+        /* --- CONTROLES MÁS / MENOS --- */
+        .controles-cantidad {
+            display: flex;
+            align-items: center;
+            background-color: #000;
+            border: 1px solid var(--rojo-electrico);
+            border-radius: 20px;
+            padding: 4px;
+        }
+
+        .btn-cantidad {
+            background-color: var(--rojo-electrico);
+            color: white;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .numero-cantidad {
+            margin: 0 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            min-width: 15px;
+            text-align: center;
+        }
+
+        /* --- BOTÓN FLOTANTE WHATSAPP --- */
+        .btn-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            left: 5%;
+            width: 50%;
+            max-width: 350px;
+            background-color: var(--verde-whatsapp);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        } 
+
+        /* ===========================
+   CARRITO DE COMPRAS
+=========================== */
+
+.btn-carrito{
+    position: fixed;
+    top: 5px;
+    right: 300px;
+    background: linear-gradient(135deg,#ffcc00,#ff9800);
+    color:#111;
+    border:none;
+    border-radius:12px;
+    padding:12px 18px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(255,193,7,.45);
+    transition:.3s;
+    z-index:2000;
+}
+
+.btn-carrito:hover{
+    transform:scale(1.05);
+}
+
+#contador-carrito{
+    background:#e60000;
+    color:white;
+    border-radius:50%;
+    padding:2px 8px;
+    margin-left:5px;
+    font-size:14px;
+}
+
+.carrito-panel{
+    position:fixed;
+    top:0;
+    right:-420px;
+    width:400px;
+    max-width:95%;
+    height:100%;
+    background:#111;
+    color:#fff;
+    transition:.4s;
+    box-shadow:-8px 0 30px rgba(0,0,0,.7);
+    z-index:3000;
+    display:flex;
+    flex-direction:column;
+}
+
+.carrito-panel.activo{
+    right:0;
+}
+
+.carrito-header{
+    background:#1b1b1b;
+    color:#FFD700;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #FFD700;
+}
+
+.carrito-header h2{
+    margin:0;
+    font-size:22px;
+}
+
+.cerrar-carrito{
+    background:#ff2a00;
+    color:white;
+    border:none;
+    width:36px;
+    height:38px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.lista-carrito{
+    flex:1;
+    overflow-y:auto;
+    padding:15px;
+}
+
+.item-carrito{
+    background:#1c1c1c;
+    border:1px solid #333;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:12px;
+}
+
+.item-carrito strong{
+    color:#FFD700;
+}
+
+.carrito-footer{
+    background:#1b1b1b;
+    padding:20px;
+    border-top:2px solid #FFD700;
+}
+
+.carrito-footer h3{
+    margin:0;
+    text-align:center;
+    color:#00ff66;
+    font-size:24px;
+    .btn-nequi{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#6f2dbd,#8e44ad);
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(111,45,189,.4);
+}
+
+.btn-nequi:hover{
+    transform:scale(1.03);
+    box-shadow:0 8px 20px rgba(111,45,189,.6);
+}
+}
+.caja-personalizar{
+    background:#151515;
+    border:2px solid #FFC107;
+    border-radius:15px;
+    padding:18px;
+    margin:25px 0;
+    box-shadow:0 0 15px rgba(255,193,7,.25);
+}
+
+.caja-personalizar h3{
+    color:#FFC107;
+    margin-bottom:8px;
+    font-size:22px;
+}
+
+.texto-ayuda{
+    color:#ddd;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+#comentarios{
+    width:100%;
+    min-height:130px;
+    border:none;
+    border-radius:12px;
+    background:#222;
+    color:white;
+    padding:15px;
+    font-size:16px;
+    resize:vertical;
+    outline:none;
+}
+
+#comentarios:focus{
+    border:2px solid #FFC107;
+}
+
+#comentarios::placeholder{
+    color:#888;
+}
+
+.personalizar-pedido{
+    position: absolute;
+    top: 5px;      /* Súbelo más o menos */
+    right: 650px;   
+    width: 200px;
+   
+   
+    background: #1f1f1f;
+    border: 1px solid #f7b500;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 999;
+}
+/* ===== BOTÓN PERSONALIZAR ===== */
+
+.personalizador-flotante{
+
+    position:fixed;
+
+    top:5px;
+
+    right:400px;   /* queda al lado izquierdo del carrito */
+
+    z-index:9998;
+
+}
+.btn-personalizar{
+
+    width: 100px;
+    height: 44px;
+
+    background: #1c1c1c;
+
+    color: #ffd54f;
+
+    border: 2px solid #ffb300;
+
+    border-radius: 15px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    transition: .3s;
+
+    box-shadow: 0 0 10px rgba(255,193,7,.25);
+
+}
+.btn-personalizar:hover{
+
+    background: #ffb300;
+
+    color: black;
+
+    transform: scale(1.03);
+
+}
+
+.panel-personalizador{
+
+    display:none;
+
+    margin-top:10px;
+
+    width:290px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:15px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.30);
+
+}
+
+.panel-personalizador h3{
+
+    color:#ff6f00;
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+}
+
+.panel-personalizador textarea{
+
+    width:100%;
+
+    height:120px;
+
+    border-radius:12px;
+
+    border:2px solid #ff9800;
+
+    padding:10px;
+
+    resize:none;
+
+    font-size:15px;
+
+}
+.observacion-producto{
+    margin-top:10px;
+}
+
+.comentario-producto{
+    width:100%;
+    min-height:45px;
+    resize:none;
+
+    border:2px solid #d9a404;
+    border-radius:8px;
+
+    padding:8px;
+
+    font-size:13px;
+
+    outline:none;
+
+    box-sizing:border-box;
+}
+
+.comentario-producto:focus{
+    border-color:#ff6f00;
+}
+    </style>
+</head>
+<body>
+
+    <div class="barra-superior">
+        <div class="total-recuadro">
+            Total Neto: <span id="total-precio" style="color: var(--oro-precio);">$0</span>
+        </div>
+       
+    </div>
+
+    <header>
+        <img src="img/logo-patacon..png" alt="Logo" class="logo-pequeno">
+        <h1><em>SR. PATACON</em></h1>
+        <p>¡más que un antojo!</p>
+    </header>
+
+    <div class="contenedor">
+
+        <div class="caja-domicilio">
+            <label>🛵 Costo del Domicilio acordado ($):</label>
+            <input type="number" id="valor-domicilio" class="input-domicilio" value="0" min="0" oninput="actualizarTotal()">
+        </div>
+
+        <div class="titulo-seccion"><h2 class="titulo-seccion">
+            <img src="img/logo-patacon..png" alt="logo" style="width: 30px; height:auto; vertical-align:middle;">
+
+         Los Combos Sr. Patacón </h2></div>
+
+        <div class="producto-card" data-nombre="1 Combito" data-precio="7000">
+            <div class="producto-img"><img src="img/slider1..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">1 Combito</div>
+                <div class="producto-detalles">5 patacones, 1 queso, 1 cervecero, 1 buty.</div>
+                <div class="producto-precio">$7.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Combo 2" data-precio="10000">
+            <div class="producto-img"><img src="img/slider13..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Combo 2</div>
+                <div class="producto-detalles">7 patacones, 1 queso, 1 cervecero, 1 salchichón.</div>
+                <div class="producto-precio">$10.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Combo 3" data-precio="15000">
+           <div class="producto-img"><img src="img/fullpataconjampy.png" alt="producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Combo 3</div>
+                <div class="producto-detalles">12 patacones, 1 queso, 1 butifarra, 1 chorizo, 1 cervecero.</div>
+                <div class="producto-precio">$15.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Combo Sr. Patacón" data-precio="25000">
+            <div class="producto-img"><img src="img/patacones variedad.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Combo Sr. Patacón</div>
+                <div class="producto-detalles">18 patacones, 3 quesos, 3 butifarras, 3 cerveceros, 1 chorizo.</div>
+                <div class="producto-precio">$25.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Combo Familiar" data-precio="37000">
+            <div class="producto-img"><img src="img/slider17.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Combo Familiar</div>
+                <div class="producto-detalles">25 patacones, 5 quesos, 4 butifarras, 4 cerveceros, 3 chorizos.</div>
+                <div class="producto-precio">$37.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="titulo-seccion">🥪 Patacones Rellenos</div>
+
+        <div class="producto-card" data-nombre="Patacón Corroncho" data-precio="12000">
+            <div class="producto-img"><img src="img/slider11..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Corroncho</div>
+                <div class="producto-precio">$12.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Patacón El Bacanísimo" data-precio="16000">
+            <div class="producto-img"><img src="img/slider2..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">El Bacanísimo</div>
+                <div class="producto-precio">$16.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Patacón El Manda Más" data-precio="20000">
+            <div class="producto-img"><img src="img/slider11..png "alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">El Manda Más</div>
+                <div class="producto-precio">$20.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+
+        <div class="titulo-seccion">🥖 Cubanitos Santa Elena</div>
+        <!-- ================= CUBANITOS SANTA ELENA ================= -->
+
+<h2 class="titulo-categoria"> Cubanitos Santa Elena</h2>
+
+<!-- CORDON BLUE -->
+<div class="producto-card" data-nombre="Cubanito Cordon Blue" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/slider14..png" alt="Cubanito Cordon Blue">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Cordon Blue</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- SUIZO -->
+<div class="producto-card" data-nombre="Cubanito Suizo" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/slider14..png" alt="Cubanito Suizo">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Suizo</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- SUIZO POLLO -->
+<div class="producto-card" data-nombre="Cubanito Suizo Pollo" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/slider14..png" alt="Cubanito Suizo Pollo">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Suizo Pollo</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+<!-- SUIZO JAMÓN -->
+<div class="producto-card" data-nombre="Cubanito Suizo Jamón" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/slider14..png" alt="Cubanito Suizo Jamón">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Suizo Jamón</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- SUIZO MAÍZ -->
+<div class="producto-card" data-nombre="Cubanito Suizo Maíz" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/slider14..png" alt="Cubanito Suizo Maíz">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Suizo Maíz</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- HAWAIANO -->
+<div class="producto-card" data-nombre="Cubanito Hawaiano" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/slider14..png" alt="Cubanito Hawaiano">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Hawaiano</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+<!-- JAMÓN Y QUESO -->
+<div class="producto-card" data-nombre="Cubanito Jamón y Queso" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/slider14..png" alt="Cubanito Jamón y Queso">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Jamón y Queso</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- TOCINO POLLO -->
+<div class="producto-card" data-nombre="Cubanito Tocino Pollo" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/slider14..png" alt="Cubanito Tocino Pollo">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Tocino Pollo</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- TOCINO MAÍZ -->
+<div class="producto-card" data-nombre="Cubanito Tocino Maíz" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/slider14..png" alt="Cubanito Tocino Maíz">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Tocino Maíz</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+        <div class="titulo-seccion">🥩 Asados</div>
+
+        <div class="producto-card" data-nombre="Asado de Cerdo" data-precio="13000">
+            <div class="producto-img"><img src="img/slider8..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Asado de Cerdo</div>
+                <select class="select-interno" onchange="cambiarPrecioOp(this)">
+                    <option value="Patacón" data-p="13000">Con Patacón ($13.000)</option>
+                    <option value="Francesa" data-p="15000">Con Papa Francesa ($15.000)</option>
+                </select>
+                <div class="producto-precio" style="margin-top: 5px;">$13.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Asado de Pechuga" data-precio="13000">
+            <div class="producto-img"><img src="img/slider.6.jpeg "alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Asado de Pechuga</div>
+                <select class="select-interno" onchange="cambiarPrecioOp(this)">
+                    <option value="Patacón" data-p="13000">Con Patacón ($13.000)</option>
+                    <option value="Francesa" data-p="15000">Con Papa Francesa ($15.000)</option>
+                </select>
+                <div class="producto-precio" style="margin-top: 5px;">$13.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Asado de Res" data-precio="15000">
+            <div class="producto-img"><img src="img/asado de res.png"Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Asado de Res</div>
+                <select class="select-interno" onchange="cambiarPrecioOp(this)">
+                    <option value="Patacón" data-p="15000">Con Patacón ($15.000)</option>
+                    <option value="Francesa" data-p="17000">Con Papa Francesa ($17.000)</option>
+                </select>
+                <div class="producto-precio" style="margin-top: 5px;">$15.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="titulo-seccion">🎉 Picadas</div>
+
+        <div class="producto-card" data-nombre="Picada" data-precio="25000">
+            <div class="producto-img"><img src="img/slider7..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Picada Familiar</div>
+                <select class="select-interno" onchange="cambiarPrecioOp(this)">
+                    <option value="2 Personas" data-p="25000">Para 2 personas ($25.000)</option>
+                    <option value="3 Personas" data-p="35000">Para 3 personas ($35.000)</option>
+                    <option value="4 Personas" data-p="50000">Para 4 personas ($50.000)</option>
+                </select>
+                <div class="producto-precio" style="margin-top: 5px;">$25.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="titulo-seccion">👹 Salvajadas</div>
+
+        <div class="producto-card" data-nombre="Salvajada Costeña" data-precio="15000">
+            <div class="producto-img"><img src="img/slider15..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salvajada Costeña</div>
+                <div class="producto-precio">$15.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Salvajada Aletoza" data-precio="25000">
+            <div class="producto-img"><img src="img/slider3..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salvajada Aletoza</div>
+                <div class="producto-precio">$25.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Salvajada Visajoza" data-precio="35000">
+            <div class="producto-img"><img src="img/slider12..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salvajada Visajoza</div>
+                <div class="producto-precio">$35.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Salvajada La Exótica" data-precio="50000">
+            <div class="producto-img"><img src="img/slider15..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salvajada La Exótica</div>
+                <div class="producto-precio">$50.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="titulo-seccion">🍟 Salchipapas & Suizos</div>
+
+        <div class="producto-card" data-nombre="Salchipapa Sencilla" data-precio="11000">
+            <div class="producto-img"><img src="img/salchipapa sencilla.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salchipapa Sencilla</div>
+                <div class="producto-precio">$11.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Salchipapa Especial" data-precio="20000">
+            <div class="producto-img"><img src="img/slider7..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salchipapa Especial</div>
+                <div class="producto-precio">$20.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Suizo Sencillo" data-precio="11000">
+            <div class="producto-img"><img src="img/suizo sencillo.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Suizo Sencillo</div>
+                <div class="producto-precio">$11.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Suizo Especial" data-precio="20000">
+            <div class="producto-img"><img src="img/slider3..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Suizo Especial</div>
+                <div class="producto-precio">$20.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Suizo Cantuo" data-precio="35000">
+            <div class="producto-img"><img src="img/slider12..png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Suizo Cantuo</div>
+                <div class="producto-precio">$35.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+
+        <div class="titulo-seccion">🥤 Gaseosas y Jugos Fríos</div>
+
+        <div class="producto-card" data-nombre="Coca-Cola 250" data-precio="2500">
+            <div class="producto-img"><img src="img/slider4..png" alt="Coca-Cola"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Coca-Cola 250 ml</div>
+                <div class="producto-precio">$2.500</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Coca-Cola 400" data-precio="4000">
+            <div class="producto-img"><img src="img/slider4..png" alt="Coca-Cola"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Coca-Cola 400 ml</div>
+                <div class="producto-precio">$4000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Coca-Cola Litro" data-precio="8000">
+            <div class="producto-img"><img src="img/litro coca cola 1.5.png" alt="Coca-Cola"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Coca-Cola Litro</div>
+                <div class="producto-precio">$8.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Jugo Hit Personal" data-precio="4000">
+            <div class="producto-img"><img src="img/jugo hit 400 personal.png" alt="Jugo Hit"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Jugo Hit Personal</div>
+                <div class="producto-precio">$4.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="agua" data-precio="1000">
+            <div class="producto-img"><img src="img/aguamas pequeña.png" alt="agua"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">agua</div>
+                <div class="producto-precio">$1000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Postobón Manzana Personal" data-precio="4000">
+            <div class="producto-img"><img src="img/postobon 400 personal.png "alt="Manzana"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Postobón Manzana Personal</div>
+                <div class="producto-precio">$4000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+       <div class="producto-card" data-nombre="Postobón Uva Puequeña" data-precio="1500">
+            <div class="producto-img"><img src="img/postobon 250 pequeña.png" alt="Uva"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Postobón Uva pequeña</div>
+                <div class="producto-precio">$1500</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+       <div class="titulo-seccion">➕ Adiciones Extras</div>
+
+        <div class="producto-card" data-nombre="Adición Queso" data-precio="1000">
+            <div class="producto-img"><img src="img/queso extra.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Queso Extra</div>
+                <div class="producto-precio">$1.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Chorizo" data-precio="3000">
+            <div class="producto-img"><img src="img/chorizo.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Chorizo Extra</div>
+                <div class="producto-precio">$3.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Salchichón" data-precio="1000">
+            <div class="producto-img"><img src="img/salchicon.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salchichón Extra</div>
+                <div class="producto-precio">$1.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Butifarra" data-precio="1000">
+            <div class="producto-img"><img src="img/butifarra.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Butifarra Extra</div>
+                <div class="producto-precio">$1.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Suiza" data-precio="5000">
+            <div class="producto-img"><img src="img/suiza.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Suiza Extra</div>
+                <div class="producto-precio">$5.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Patacones" data-precio="3000">
+            <div class="producto-img"><img src="img/patacones.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Patacones Extra</div>
+                <div class="producto-precio">$3.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+    </div>
+    <button class="btn-carrito" onclick="abrirCarrito()">
+    🛒 <span id="contador-carrito">0</span>
+</button>
+
+<div id="carrito" class="carrito-panel">
+    <div class="carrito-header">
+        <h2>🛒 Mi Pedido</h2>
+        <button class="cerrar-carrito" onclick="cerrarCarrito()">✖</button>
+    </div>
+
+    <div id="lista-carrito" class="lista-carrito">
+        <p style="text-align:center;color:#999;">
+            Tu carrito está vacío
+        </p>
+    </div>
+
+    <div class="carrito-footer">
+        <h3>Total: <span id="total-carrito">$0</span></h3>
+        <button class="btn-nequi" onclick="pagarNequi()">
+    💳 Pagar con Nequi
+</button>
+    </div>
+</div>
+<button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
+        
+        🟢 Enviar Pedido por WhatsApp
+    </button>
+    
+
+    <script>
+           function cambiarCantidad(btn, valor) {
+    let numSpan = btn.parentElement.querySelector('.numero-cantidad');
+    let cantidad = parseInt(numSpan.innerText) + valor;
+
+    if (cantidad >= 0) {
+        numSpan.innerText = cantidad;
+        actualizarTotal();
+        actualizarCarrito(); // ← ESTA ES LA LÍNEA NUEVA
+    }
+}
+
+        function cambiarPrecioOp(select) {
+            let precioNuevo = select.options[select.selectedIndex].getAttribute('data-p');
+            let card = select.closest('.producto-card');
+            if(card) {
+                card.setAttribute('data-precio', precioNuevo);
+                let precioTxt = card.querySelector('.producto-precio');
+                if(precioTxt) {
+                    precioTxt.innerText = '$' + parseInt(precioNuevo).toLocaleString('es-CO');
+                }
+                actualizarTotal();
+            }
+        }
+
+function actualizarTotal() {
+
+    let total = 0;
+
+    let tarjetas = document.querySelectorAll('.producto-card');
+
+    tarjetas.forEach(card => {
+
+        let precio = parseInt(card.getAttribute('data-precio')) || 0;
+        let cantidad = parseInt(card.querySelector('.numero-cantidad').innerText) || 0;
+
+        total += precio * cantidad;
+
+    });
+
+    let costoDom = parseInt(document.getElementById('valor-domicilio').value) || 0;
+
+    total += costoDom;
+
+    document.getElementById('total-precio').innerText =
+
+
+
+        '$' + total.toLocaleString('es-CO');
+
+    actualizarCarrito();
+
+}
+        function enviarPedidoWhatsApp() {
+            let numeroDestino = "573145448787"; 
+            let texto =
+`🛵══════════════════════════════
+        *SR. PATACÓN*
+      📲 *NUEVO PEDIDO ONLINE*
+══════════════════════════════
+
+👋 Hola, acabo de realizar el siguiente pedido:
+
+📦 *PRODUCTOS*
+
+`;
+            let tieneProductos = false;
+            let subtotal = 0;
+           
+            let tarjetas = document.querySelectorAll('.producto-card');
+            tarjetas.forEach(card => {
+                let cantidad = parseInt(card.querySelector('.numero-cantidad').innerText) || 0;
+                if (cantidad > 0) {
+                    tieneProductos = true;
+                    let nombre = card.getAttribute('data-nombre');
+                    let precio = parseInt(card.getAttribute('data-precio')) || 0;
+                    let comentario = "";
+
+let cajaComentario = card.querySelector(".comentario-producto");
+
+if (cajaComentario) {
+    comentario = cajaComentario.value.trim();
+}
+                    
+                    if (nombre === "Cubanito Sabores") {
+                        let sabor = document.getElementById('sabor-cubanito').value;
+                        nombre = `Cubanito (${sabor})`;
+                    }
+                    
+                    let selectInterno = card.querySelector('.select-interno');
+                    if (selectInterno && nombre !== "Cubanito Sabores") {
+                        nombre += ` [${selectInterno.value}]`;
+                    }
+
+                    let subTotalProd = precio * cantidad;
+                    subtotal += subTotalProd;
+                    texto += `• *${cantidad}x* ${nombre} -> $${subTotalProd.toLocaleString('es-CO')}\n`;
+                    if (comentario !== "") {
+    texto += `   📝 ${comentario}\n`;
+}
+                    
+                }
+            });
+
+            if (!tieneProductos) {
+                alert("Por favor, añade al menos un producto a tu pedido antes de enviar.");
+                return;
+            }
+
+            let costoDom = parseInt(document.getElementById('valor-domicilio').value) || 0;
+            let totalFinal = subtotal + costoDom;
+
+            texto += `
+
+══════════════════════════════
+
+💵 *RESUMEN DEL PEDIDO*
+
+Subtotal: $${subtotal.toLocaleString('es-CO')}
+🛵 Domicilio: $${costoDom.toLocaleString('es-CO')}
+
+━━━━━━━━━━━━━━━━━━━━━━
+💰 *TOTAL A PAGAR: $${totalFinal.toLocaleString('es-CO')}*
+━━━━━━━━━━━━━━━━━━━━━━
+
+💳 *Pago por Nequi*
+📱 311 744 2305
+
+📌 Favor enviar el comprobante de pago junto con este pedido.
+
+🙏 ¡Gracias por preferir *SR. PATACÓN*! ❤️`;
+           
+
+
+texto += `\n\n💳 _Pago vía Nequi al número:_ *311 744 2305* (Favor enviar comprobante de transferencia al enviar el pedido).`;
+
+
+            let url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(texto)}`;
+           
+            window.open(url, '_blank');
+}
+        
+        
+ //======================
+// ABRIR Y CERRAR CARRITO
+// ======================
+
+function abrirCarrito() {
+    document.getElementById("carrito").classList.add("activo");
+}
+function cerrarCarrito() {
+    document.getElementById("carrito").classList.remove("activo");
+}
+function pagarNequi(){
+
+    alert(
+`NEQUI
+
+Número:
+311 744 2305
+
+Titular:
+Ena***Leo*
+
+Después del pago envía el comprobante por WhatsApp.`
+    );
+
+}
+function actualizarCarrito(){
+
+    let lista = document.getElementById("lista-carrito");
+    let contador = document.getElementById("contador-carrito");
+    let total = document.getElementById("total-carrito");
+
+    lista.innerHTML = "";
+
+    let cantidadProductos = 0;
+    let subtotal = 0;
+
+    document.querySelectorAll(".producto-card").forEach(card => {
+
+        let cantidad = parseInt(card.querySelector(".numero-cantidad").innerText) || 0;
+
+        if(cantidad > 0){
+
+            let nombre = card.getAttribute("data-nombre");
+            let precio = parseInt(card.getAttribute("data-precio")) || 0;
+            let comentario = "";
+
+let cajaComentario = card.querySelector(".comentario-producto");
+
+if (cajaComentario) {
+    comentario = cajaComentario.value.trim();
+}
+
+cantidadProductos += cantidad;
+           
+            let totalProducto = precio * cantidad;
+            subtotal += totalProducto;
+
+           lista.innerHTML += `
+<div class="item-carrito">
+    <strong>${nombre}</strong><br>
+    Cantidad: ${cantidad}<br>
+
+    ${comentario !== "" ? `
+        <div style="
+            margin:8px 0;
+            padding:8px;
+            background:#fff8dc;
+            border-left:4px solid orange;
+            border-radius:6px;
+            color:#333;
+            font-size:13px;">
+            📝 ${comentario}
+        </div>
+    ` : ""}
+
+    <strong>$${totalProducto.toLocaleString("es-CO")}</strong>
+</div>
+`;
+        }
+
+    });
+
+    if(cantidadProductos == 0){
+        lista.innerHTML = "<p style='text-align:center;color:#999;'>Tu carrito está vacío</p>";
+    }
+
+    // DOMICILIO
+    let domicilio = parseInt(document.getElementById("valor-domicilio").value) || 0;
+
+    // TOTAL FINAL
+    let totalFinal = subtotal + domicilio;
+
+    contador.innerText = cantidadProductos;
+
+    total.innerHTML = `
+        Subtotal: $${subtotal.toLocaleString("es-CO")}<br>
+        Domicilio: $${domicilio.toLocaleString("es-CO")}<hr>
+        <strong>Total: $${totalFinal.toLocaleString("es-CO")}</strong>
+    `;
+}
+
+    
+    </script>
+</body>
+</html>
