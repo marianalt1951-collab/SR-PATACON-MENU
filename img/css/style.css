@@ -1,0 +1,2690 @@
+/* ==========================================
+   SR PATACÓN - MENÚ DIGITAL
+========================================== */
+
+:root{
+    --amarillo:#FFD600;
+    --rojo:#E53935;
+    --negro:#0d0d0d;
+    --gris:#1b1b1b;
+    --blanco:#ffffff;
+    --oro:#FFC107;
+    --verde:#25D366;
+}
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:var(--negro);
+    color:white;
+}
+
+/* BARRA SUPERIOR */
+
+.barra-superior{
+
+    position:sticky;
+    top:0;
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+
+    padding:15px;
+
+    background:#111;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.4);
+
+    z-index:999;
+}
+
+.total-recuadro{
+
+    background:#222;
+
+    color:white;
+
+    border:2px solid var(--oro);
+
+    border-radius:10px;
+
+    padding:10px 20px;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+/* HEADER */
+
+header{
+
+    text-align:center;
+
+    padding:35px 20px;
+}
+
+.logo-pequeno{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    border:5px solid var(--oro);
+
+    object-fit:cover;
+
+    box-shadow:0 0 20px rgba(255,193,7,.5);
+}
+
+header h1{
+
+    margin-top:20px;
+
+    color:var(--amarillo);
+
+    font-size:45px;
+}
+
+header p{
+
+    margin-top:8px;
+
+    color:#dddddd;
+
+    font-size:20px;
+}
+
+/* CONTENEDOR */
+
+.contenedor{
+
+    width:95%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding-bottom:100px;
+}
+/*=========================================
+TÍTULOS DE LAS CATEGORÍAS
+=========================================*/
+
+.titulo-seccion{
+
+    margin:40px 0 20px;
+
+    color:var(--amarillo);
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    border-left:8px solid var(--rojo);
+
+    padding-left:15px;
+
+}
+
+.titulo-categoria{
+
+    color:var(--blanco);
+
+    font-size:24px;
+
+    margin:20px 0;
+
+}
+
+/*=========================================
+TARJETAS DE PRODUCTOS
+=========================================*/
+
+.producto-card{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    background:var(--gris);
+
+    margin-bottom:20px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    border:1px solid #333;
+
+    transition:.35s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+
+}
+
+.producto-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--oro);
+
+    box-shadow:0 0 20px rgba(255,193,7,.35);
+
+}
+
+/*=========================================
+IMÁGENES
+=========================================*/
+
+.producto-img{
+
+    width:120px;
+
+    height:120px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+    flex-shrink:0;
+
+}
+
+.producto-img img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.producto-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================
+INFORMACIÓN
+=========================================*/
+
+.producto-info{
+
+    flex:1;
+
+}
+
+.producto-nombre{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    color:white;
+
+}
+
+.producto-detalles{
+
+    color:#d7d7d7;
+
+    margin-top:8px;
+
+    line-height:1.5;
+
+}
+
+.producto-precio{
+
+    color:var(--oro);
+
+    font-size:24px;
+
+    margin-top:10px;
+
+    font-weight:bold;
+
+}
+
+/*=========================================
+SELECT
+=========================================*/
+
+.select-interno{
+
+    margin-top:10px;
+
+    width:100%;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    border:none;
+
+    background:#2b2b2b;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+.select-interno:focus{
+
+    outline:none;
+
+    border:2px solid var(--oro);
+
+}
+/*=========================================
+BOTONES DE CANTIDAD
+=========================================*/
+
+.controles-cantidad{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.btn-cantidad{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--rojo);
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-cantidad:hover{
+
+    background:var(--amarillo);
+
+    color:black;
+
+    transform:scale(1.1);
+
+}
+
+.numero-cantidad{
+
+    min-width:30px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:white;
+
+}
+
+/*=========================================
+OBSERVACIONES
+=========================================*/
+
+.observacion-producto{
+
+    margin-top:15px;
+
+}
+
+.comentario-producto{
+
+    width:100%;
+
+    resize:vertical;
+
+    min-height:60px;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2b2b2b;
+
+    color:white;
+
+    font-size:15px;
+
+    outline:none;
+
+}
+
+.comentario-producto:focus{
+
+    border:2px solid var(--oro);
+
+}
+
+/*=========================================
+BOTÓN CARRITO
+=========================================*/
+
+.btn-carrito{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:100px;
+
+    width:65px;
+
+    height:65px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--oro);
+
+    color:black;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.5);
+
+    transition:.3s;
+
+    z-index:1000;
+
+}
+
+.btn-carrito:hover{
+
+    transform:scale(1.1);
+
+}
+
+#contador-carrito{
+
+    background:red;
+
+    color:white;
+
+    border-radius:50%;
+
+    padding:2px 7px;
+
+    font-size:13px;
+
+    position:absolute;
+
+    top:-5px;
+
+    right:-5px;
+
+}
+
+/*=========================================
+BOTÓN WHATSAPP
+=========================================*/
+
+.btn-whatsapp{
+
+    position:fixed;
+
+    left:25px;
+
+    bottom:25px;
+
+    background:#25D366;
+
+    color:white;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:16px 24px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.5);
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+.btn-whatsapp:hover{
+
+    transform:scale(1.05);
+
+}
+
+/*=========================================
+CARRITO LATERAL
+=========================================*/
+
+.carrito-panel{
+
+    position:fixed;
+
+    top:0;
+
+    right: -420px;
+
+    width:380px;
+
+    height:100vh;
+
+    background:#fff;
+
+    color:white;
+
+    transition:.35s;
+
+    box-shadow:-5px 0 20px rgba(0,0,0,.5);
+
+    z-index:99999;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.carrito-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:#1b1b1b;
+
+    border-bottom:2px solid var(--oro);
+
+}
+
+.cerrar-carrito{
+
+    background:red;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    padding:8px 12px;
+
+    cursor:pointer;
+
+}
+
+.lista-carrito{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:20px;
+
+}
+
+.carrito-footer{
+
+    padding:20px;
+
+    border-top:2px solid #333;
+
+}
+
+.btn-nequi{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    background:#5B2EFF;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-nequi:hover{
+
+    transform:scale(1.02);
+
+}
+
+/*=========================================
+RESPONSIVE
+=========================================*/
+
+@media(max-width:768px){
+
+    .producto-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .producto-img{
+
+        width:180px;
+
+        height:180px;
+
+    }
+
+    .producto-info{
+
+        width:100%;
+
+    }
+
+    .carrito-panel{
+
+        width:100%;
+
+    }
+
+    .btn-whatsapp{
+
+        left:15px;
+
+        right:15px;
+
+        width:auto;
+
+        text-align:center;
+
+    }
+
+}
+/*==================================================
+    BOTONES DE CATEGORÍAS
+==================================================*/
+
+.menu-categorias{
+
+    position:sticky;
+
+    top:65px;
+
+    z-index:900;
+
+    display:flex;
+
+    gap:15px;
+
+    overflow-x:auto;
+
+    padding:15px;
+
+    background:rgba(10,10,10,.95);
+
+    backdrop-filter:blur(12px);
+
+}
+
+.menu-categorias::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.menu-categorias a{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#1d1d1d;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    white-space:nowrap;
+
+    transition:.35s;
+
+    border:2px solid transparent;
+
+    font-weight:bold;
+
+}
+
+.menu-categorias a:hover{
+
+    background:var(--oro);
+
+    color:black;
+
+    border-color:white;
+
+    transform:translateY(-3px);
+
+}
+
+
+/*==================================================
+BUSCADOR
+==================================================*/
+
+.buscador{
+
+    width:100%;
+
+    margin:25px 0;
+
+    position:relative;
+
+}
+
+.buscador input{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#1f1f1f;
+
+    color:white;
+
+    font-size:18px;
+
+    outline:none;
+
+    box-shadow:0 0 15px rgba(0,0,0,.35);
+
+}
+
+.buscador input:focus{
+
+    border:2px solid var(--oro);
+
+}
+
+
+/*==================================================
+EFECTO EN LAS TARJETAS
+==================================================*/
+
+.producto-card{
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.producto-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-100%;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,
+    transparent,
+    rgba(255,255,255,.12),
+    transparent);
+
+    transition:.7s;
+
+}
+
+.producto-card:hover::before{
+
+    left:100%;
+
+}
+
+
+/*==================================================
+ETIQUETA DESTACADO
+==================================================*/
+
+.destacado{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:#ff3d00;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+
+/*==================================================
+ANIMACIONES
+==================================================*/
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.producto-card{
+
+    animation:aparecer .5s ease;
+
+}
+
+
+/*==================================================
+SCROLL
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--oro);
+
+    border-radius:20px;
+
+}
+
+
+/*==================================================
+FOOTER
+==================================================*/
+
+footer{
+
+    margin-top:80px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#bdbdbd;
+
+    background:#111;
+
+    border-top:2px solid #222;
+
+}
+
+footer h3{
+
+    color:var(--oro);
+
+    margin-bottom:10px;
+
+}
+
+footer p{
+
+    line-height:1.8;
+
+}
+/*==================================================
+      SR PATACÓN PRO - PARTE 5
+      EFECTOS PREMIUM
+==================================================*/
+
+/* TARJETAS PREMIUM */
+
+.producto-card{
+
+    background:linear-gradient(145deg,#181818,#101010);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+}
+
+/* BRILLO DORADO */
+
+.producto-card:hover{
+
+    box-shadow:
+        0 0 15px rgba(255,193,7,.35),
+        0 0 30px rgba(255,193,7,.20),
+        0 12px 35px rgba(0,0,0,.45);
+
+}
+
+/* IMÁGENES */
+
+.producto-img{
+
+    position:relative;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.producto-img img{
+
+    transition:.45s;
+
+}
+
+.producto-card:hover .producto-img img{
+
+    transform:scale(1.12);
+
+}
+
+/* BORDE LUMINOSO */
+
+.producto-img::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:18px;
+
+    border:2px solid rgba(255,193,7,.18);
+
+    pointer-events:none;
+
+}
+
+/* NOMBRE */
+
+.producto-nombre{
+
+    font-size:26px;
+
+    letter-spacing:.5px;
+
+}
+
+/* PRECIO */
+
+.producto-precio{
+
+    text-shadow:
+
+        0 0 8px rgba(255,193,7,.7);
+
+}
+
+/* BOTÓN + */
+
+.btn-cantidad:last-child{
+
+    background:#18c75a;
+
+}
+
+.btn-cantidad:last-child:hover{
+
+    background:#20e06a;
+
+    color:white;
+
+}
+
+/* BOTÓN - */
+
+.btn-cantidad:first-child{
+
+    background:#e53935;
+
+}
+
+.btn-cantidad:first-child:hover{
+
+    background:#ff5b57;
+
+}
+
+/* CANTIDAD */
+
+.numero-cantidad{
+
+    background:#202020;
+
+    padding:8px 14px;
+
+    border-radius:10px;
+
+    min-width:45px;
+
+}
+
+/* ANIMACIÓN LOGO */
+
+.logo-pequeno{
+
+    animation:logoFlotar 4s ease-in-out infinite;
+
+}
+
+@keyframes logoFlotar{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* TITULOS */
+
+.titulo-seccion{
+
+    position:relative;
+
+}
+
+.titulo-seccion::after{
+
+    content:"";
+
+    display:block;
+
+    margin-top:10px;
+
+    width:90px;
+
+    height:4px;
+
+    border-radius:30px;
+
+    background:linear-gradient(to right,#FFC107,#FF2A00);
+
+}
+
+/* TOTAL */
+
+.total-recuadro{
+
+    animation:brilloTotal 2.5s infinite;
+
+}
+
+@keyframes brilloTotal{
+
+    0%{
+
+        box-shadow:0 0 0 rgba(255,193,7,.2);
+
+    }
+
+    50%{
+
+        box-shadow:0 0 18px rgba(255,193,7,.6);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 rgba(255,193,7,.2);
+
+    }
+
+}
+
+/* BOTÓN WHATSAPP */
+
+.btn-whatsapp{
+
+    animation:whatsapp 2s infinite;
+
+}
+
+@keyframes whatsapp{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.06);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* BOTÓN CARRITO */
+
+.btn-carrito{
+
+    animation:carrito 3s infinite;
+
+}
+
+@keyframes carrito{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    10%{
+
+        transform:rotate(-8deg);
+
+    }
+
+    20%{
+
+        transform:rotate(8deg);
+
+    }
+
+    30%{
+
+        transform:rotate(-6deg);
+
+    }
+
+    40%{
+
+        transform:rotate(0deg);
+
+    }
+
+}
+
+/* INPUTS */
+
+input,
+textarea,
+select{
+
+    transition:.30s;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    box-shadow:0 0 12px rgba(255,193,7,.45);
+
+}
+
+/* BOTÓN NEQUI */
+
+.btn-nequi{
+
+    background:linear-gradient(90deg,#662D91,#8A2BE2);
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+}
+
+.btn-nequi:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(138,43,226,.35);
+
+}
+/*==================================================
+      SR PATACÓN PRO - PARTE 6
+      EFECTOS PREMIUM Y BANNER
+==================================================*/
+
+/*========== BANNER PRINCIPAL ==========*/
+
+.banner-principal{
+
+    width:100%;
+
+    height:320px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    margin:25px 0 40px;
+
+    position:relative;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
+
+}
+
+.banner-principal img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.8s;
+
+}
+
+.banner-principal:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.banner-principal::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(to top,
+    rgba(0,0,0,.85),
+    rgba(0,0,0,.20));
+
+}
+
+/*========== TEXTO DEL BANNER ==========*/
+
+.banner-texto{
+
+    position:absolute;
+
+    left:40px;
+
+    bottom:35px;
+
+    z-index:5;
+
+}
+
+.banner-texto h2{
+
+    font-size:48px;
+
+    color:#FFD600;
+
+    text-shadow:0 0 15px rgba(255,193,7,.7);
+
+}
+
+.banner-texto p{
+
+    margin-top:8px;
+
+    font-size:20px;
+
+    color:white;
+
+}
+
+/*========== ETIQUETAS ==========*/
+
+.badge{
+
+    display:inline-block;
+
+    padding:7px 14px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin-top:12px;
+
+}
+
+.badge-rojo{
+
+    background:#ff3b30;
+
+    color:white;
+
+}
+
+.badge-verde{
+
+    background:#18c75a;
+
+    color:white;
+
+}
+
+.badge-amarillo{
+
+    background:#FFC107;
+
+    color:black;
+
+}
+
+/*========== ESTRELLAS ==========*/
+
+.estrellas{
+
+    color:#FFD600;
+
+    font-size:18px;
+
+    margin:10px 0;
+
+    letter-spacing:2px;
+
+}
+
+/*========== EFECTO DE IMAGEN ==========*/
+
+.producto-img{
+
+    box-shadow:
+
+        0 8px 25px rgba(0,0,0,.35);
+
+}
+
+.producto-card:hover .producto-img{
+
+    transform:rotate(-2deg);
+
+}
+
+/*========== TARJETA PREMIUM ==========*/
+
+.producto-card{
+
+    border-radius:22px;
+
+}
+
+.producto-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:linear-gradient(to right,#FFD600,#FF2A00);
+
+}
+
+/*========== SOMBRA DEL TÍTULO ==========*/
+
+.producto-nombre{
+
+    text-shadow:0 2px 5px rgba(0,0,0,.35);
+
+}
+
+/*========== EFECTO DEL PRECIO ==========*/
+
+.producto-precio{
+
+    position:relative;
+
+}
+
+.producto-precio::after{
+
+    content:"";
+
+    display:block;
+
+    width:70px;
+
+    height:3px;
+
+    margin-top:5px;
+
+    border-radius:20px;
+
+    background:#FFD600;
+
+}
+
+/*========== BOTONES ==========*/
+
+.btn-cantidad{
+
+    box-shadow:0 5px 15px rgba(0,0,0,.30);
+
+}
+
+.btn-cantidad:active{
+
+    transform:scale(.92);
+
+}
+
+/*========== CARRITO ==========*/
+
+.carrito-panel{
+
+    border-left:3px solid #FFD600;
+
+}
+
+.carrito-header h2{
+
+    color:#FFD600;
+
+}
+
+.lista-carrito{
+
+    scrollbar-width:thin;
+
+    scrollbar-color:#FFD600 #111;
+
+}
+
+/*========== PIE ==========*/
+
+footer{
+
+    background:#080808;
+
+}
+
+footer p{
+
+    color:#cfcfcf;
+
+}
+
+/*========== RESPONSIVE ==========*/
+
+@media(max-width:768px){
+
+.banner-principal{
+
+    height:220px;
+
+}
+
+.banner-texto{
+
+    left:20px;
+
+    bottom:20px;
+
+}
+
+.banner-texto h2{
+
+    font-size:30px;
+
+}
+
+.banner-texto p{
+
+    font-size:16px;
+
+}
+
+.producto-nombre{
+
+    font-size:22px;
+
+}
+
+.producto-precio{
+
+    font-size:22px;
+
+}
+
+}
+/*==================================================
+      SR PATACÓN PRO - PARTE 7
+      EFECTOS VIP
+==================================================*/
+
+/*==============================
+FONDO CON LUCES
+==============================*/
+
+body{
+
+    background:
+    radial-gradient(circle at top left,#2d1200 0%,transparent 25%),
+    radial-gradient(circle at top right,#5b0000 0%,transparent 20%),
+    radial-gradient(circle at bottom,#3b2400 0%,transparent 30%),
+    #070707;
+
+}
+
+/*==============================
+HEADER PREMIUM
+==============================*/
+
+header{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+header::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    background:rgba(255,193,7,.08);
+
+    border-radius:50%;
+
+    top:-160px;
+
+    right:-100px;
+
+    filter:blur(20px);
+
+}
+
+header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:rgba(255,42,0,.08);
+
+    border-radius:50%;
+
+    left:-120px;
+
+    bottom:-120px;
+
+    filter:blur(30px);
+
+}
+
+/*==============================
+LOGO
+==============================*/
+
+.logo-pequeno{
+
+    transition:.5s;
+
+}
+
+.logo-pequeno:hover{
+
+    transform:rotate(8deg) scale(1.12);
+
+    box-shadow:
+
+    0 0 20px #FFD600,
+
+    0 0 40px rgba(255,193,7,.6);
+
+}
+
+/*==============================
+TARJETAS
+==============================*/
+
+.producto-card{
+
+    border:1px solid rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+}
+
+.producto-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+/*==============================
+PRECIO
+==============================*/
+
+.producto-precio{
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+/*==============================
+BOTONES
+==============================*/
+
+.btn-cantidad{
+
+    background:linear-gradient(180deg,#ff3d00,#c62828);
+
+}
+
+.btn-cantidad:last-child{
+
+    background:linear-gradient(180deg,#26d367,#0b8f42);
+
+}
+
+.btn-cantidad:hover{
+
+    transform:scale(1.15);
+
+}
+
+/*==============================
+BOTÓN WHATSAPP
+==============================*/
+
+.btn-whatsapp{
+
+    background:linear-gradient(90deg,#25D366,#128C7E);
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+}
+
+.btn-whatsapp:hover{
+
+    box-shadow:
+
+    0 0 20px rgba(37,211,102,.6);
+
+}
+
+/*==============================
+BOTÓN CARRITO
+==============================*/
+
+.btn-carrito{
+
+    background:linear-gradient(180deg,#FFD600,#ff9800);
+
+}
+
+.btn-carrito:hover{
+
+    box-shadow:
+
+    0 0 18px rgba(255,193,7,.7);
+
+}
+
+/*==============================
+SCROLL SUAVE
+==============================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/*==============================
+ANIMACIÓN DE ENTRADA
+==============================*/
+
+@keyframes subir{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.producto-card{
+
+    animation:subir .6s ease;
+
+}
+
+/*==============================
+RESPONSIVE
+==============================*/
+
+@media(max-width:768px){
+
+    .producto-card{
+
+        padding:15px;
+
+    }
+
+    .logo-pequeno{
+
+        width:110px;
+
+        height:110px;
+
+    }
+
+    header h1{
+
+        font-size:34px;
+
+    }
+
+    .producto-precio{
+
+        font-size:24px;
+
+    }
+
+}
+/*==================================================
+      SR PATACÓN PRO - PARTE 8
+      ACABADOS FINALES
+==================================================*/
+
+/* Fondo elegante */
+body{
+
+    background:
+    radial-gradient(circle at 15% 20%, rgba(0,255,120,.28), transparent 28%),
+    radial-gradient(circle at 85% 15%, rgba(255,215,0,.22), transparent 25%),
+    radial-gradient(circle at 20% 85%, rgba(255,60,0,.18), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(50,255,120,.20), transparent 30%),
+    linear-gradient(180deg,#030303,#0b0b0b,#141414,#080808);
+
+    background-attachment:fixed;
+
+}
+   
+
+
+/* Animación suave al cargar */
+header,
+.producto-card,
+footer{
+    animation: fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Título principal */
+header h1{
+    background: linear-gradient(90deg,#FFD700,#FF9800,#FF3D00);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    font-weight:800;
+}
+
+/* Línea decorativa */
+header h1::after{
+    content:"";
+    display:block;
+    width:120px;
+    height:4px;
+    margin:12px auto;
+    background:#FFD700;
+    border-radius:20px;
+}
+
+/* Logo */
+.logo-pequeno{
+    cursor:pointer;
+}
+
+.logo-pequeno:hover{
+    transform:scale(1.1) rotate(5deg);
+}
+
+/* Tarjetas */
+.producto-card{
+    transition:.4s;
+}
+
+.producto-card:hover{
+    transform:translateY(-8px);
+}
+
+/* Precio */
+.producto-precio{
+    color:#FFD700;
+    font-size:26px;
+}
+
+/* Botones */
+.btn-cantidad,
+.btn-nequi,
+.btn-whatsapp{
+    transition:.3s;
+}
+
+.btn-cantidad:hover,
+.btn-nequi:hover,
+.btn-whatsapp:hover{
+    transform:translateY(-3px);
+}
+
+/* Footer */
+footer{
+    background:#111;
+    border-top:2px solid #FFD700;
+}
+
+footer h3{
+    color:#FFD700;
+}
+
+footer p{
+    color:#ccc;
+}
+
+/* Responsive */
+@media (max-width:768px){
+
+    header h1{
+        font-size:30px;
+    }
+
+    .producto-card{
+        padding:15px;
+    }
+
+    .producto-img{
+        width:150px;
+        height:150px;
+    }
+
+    .producto-precio{
+        font-size:22px;
+    }
+
+}
+.btn-vaciar{
+
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    border:none;
+    border-radius:12px;
+    background:#d32f2f;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.btn-vaciar:hover{
+
+    background:#b71c1c;
+
+}
+/*====================================
+LOGO GIGANTE DE FONDO
+====================================*/
+
+body{
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:url("../img/logo-fondo.png..png") center center no-repeat;
+
+    background-size:900px;
+
+    opacity:.22;
+
+    filter:
+        saturate(170%)
+        brightness(1.35)
+        drop-shadow(0 0 40px rgba(0,255,120,.55))
+        drop-shadow(0 0 70px rgba(255,215,0,.35));
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+/*=========================================
+        SLIDER SR. PATACÓN
+=========================================*/
+
+.slider{
+
+    position:relative;
+
+    width:70%;
+
+    max-width:750px;
+
+    height:220px;
+
+    margin:30px auto;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45);
+
+}
+
+.slides{
+
+    width:100%;
+
+    height:100%;
+
+    position:relative;
+
+}
+
+.slide{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:0;
+
+    transition:opacity .8s ease;
+
+}
+
+.slide.activo{
+
+    opacity:1;
+
+}
+
+.texto-slider{
+
+    position:absolute;
+
+    left:25px;
+
+    bottom:18px;
+
+    z-index:5;
+
+    color:white;
+
+    text-shadow:0 3px 10px rgba(0,0,0,.8);
+
+}
+
+.texto-slider h2{
+
+    font-size:42px;
+
+    color:#FFD700;
+
+}
+
+.texto-slider p{
+
+    margin-top:8px;
+
+    font-size:18px;
+
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.55)
+    );
+
+    z-index:2;
+
+}
+
+@media(max-width:768px){
+
+    .slider{
+
+        height:150px;
+
+    }
+
+    .texto-slider{
+
+        left:20px;
+
+        bottom:20px;
+
+    }
+
+    .texto-slider h2{
+
+        font-size:26px;
+
+    }
+
+    .texto-slider p{
+
+        font-size:14px;
+
+    }
+
+}
+.slider img{
+    width:90%;
+    height: 230px;
+    object-fit: contain;
+}
+/*=========================================
+ANIMACIÓN DEL CARRITO
+=========================================*/
+
+@keyframes reboteCarrito{
+
+    0%{
+        transform:scale(1);
+    }
+
+    30%{
+        transform:scale(1.25) rotate(-10deg);
+    }
+
+    60%{
+        transform:scale(.90) rotate(10deg);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+.carrito-animado{
+
+    animation:reboteCarrito .6s ease;
+
+}
+/*=====================================
+   PRODUCTO VOLANDO AL CARRITO
+======================================*/
+
+.imagen-volando{
+
+    position:fixed;
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:18px;
+
+    object-fit:cover;
+
+    z-index:999999;
+
+    pointer-events:none;
+
+    transition:all .9s cubic-bezier(.25,.8,.25,1);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.45);
+
+}
+/*=====================================
+BOTÓN LLAMAR
+======================================*/
+
+.btn-llamar{
+
+    position:fixed;
+
+    bottom:100px;
+
+    left:25px;
+
+    background:linear-gradient(135deg,#ff9800,#ff5722);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    box-shadow:0 0 25px rgba(255,140,0,.6);
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+.btn-llamar:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 35px rgba(255,140,0,.9);
+
+}
+.total-pedido{
+
+    margin-top:20px;
+    padding:15px;
+    background:#111;
+    border-radius:15px;
+    text-align:center;
+
+}
+
+
+.total-pedido h3{
+
+    color:#FFD600;
+    font-size:22px;
+
+}
+
+
+#total-carrito{
+
+    color:white;
+
+}
+/*=========================================
+        REBOTE CARRITO
+=========================================*/
+
+@keyframes rebote {
+
+    0%{
+        transform:scale(1);
+    }
+
+    25%{
+        transform:scale(1.25);
+    }
+
+    50%{
+        transform:scale(.9);
+    }
+
+    75%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+.btn-carrito.rebote{
+
+    animation:rebote .6s;
+
+}
+/*=========================================
+      DATOS PARA EL DOMICILIO
+=========================================*/
+
+.datos-cliente{
+
+    max-width: 700px;
+
+    margin: 20px auto;
+
+    padding: 15px;
+
+    background: linear-gradient(135deg,#25D366,#128C7E);
+
+    border-radius: 15px;
+
+    border: 2px solid #FFD600;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.35);
+
+}
+
+.datos-cliente h3{
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    margin-bottom: 12px;
+
+}
+
+.datos-cliente input{
+
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0 12px;
+
+    margin-bottom: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    box-sizing: border-box;
+
+}
+
+.datos-cliente input:last-child{
+
+    margin-bottom: 0;
+
+}
+
+/*=========================================
+        BUSCADOR DEL MENÚ
+=========================================*/
+
+.buscador-menu{
+    position: sticky;
+    top: 10px;
+    z-index: 999;
+    margin: 15px auto 25px;
+    text-align: center;
+}
+
+.buscador-menu input{
+
+    width: 95%;
+    max-width: 500px;
+
+    padding: 14px 18px;
+
+    border-radius: 40px;
+
+    border: 2px solid #FFD600;
+
+    outline: none;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    background: #111;
+
+    color: white;
+
+    box-shadow: 0 0 15px rgba(255,214,0,.35);
+
+    transition: .30s;
+}
+
+.buscador-menu input:focus{
+
+    border-color: #25D366;
+
+    box-shadow: 0 0 18px #25D366;
+
+    transform: scale(1.02);
+
+}
+
+.buscador-menu input::placeholder{
+
+    color:#bbb;
+
+}
+
+/*==================================================
+        SR PATACÓN - RESPONSIVE CELULAR PRO
+==================================================*/
+
+@media screen and (max-width:768px){
+
+html{
+    font-size:16px;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* Barra superior */
+
+.barra-superior{
+    padding:10px 15px;
+}
+
+.total-recuadro{
+    width:100%;
+    text-align:center;
+    font-size:18px;
+}
+
+/* Header */
+
+header{
+    padding:20px 15px;
+}
+
+.logo-pequeno{
+    width:100px;
+    height:100px;
+}
+
+header h1{
+    font-size:28px;
+}
+
+header p{
+    font-size:16px;
+}
+
+/* Slider */
+
+.slider{
+    width:95%;
+    height:170px;
+}
+
+.slider img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+}
+
+.texto-slider{
+    left:15px;
+    bottom:15px;
+}
+
+.texto-slider h2{
+    font-size:24px;
+}
+
+.texto-slider p{
+    font-size:14px;
+}
+
+/* Categorías */
+
+.menu-categorias{
+    gap:10px;
+    padding:10px;
+}
+
+.menu-categorias a{
+    font-size:14px;
+    padding:10px 18px;
+}
+
+/* Buscador */
+
+.buscador-menu input{
+    width:95%;
+    font-size:15px;
+}
+
+/* Productos */
+
+.producto-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:18px;
+
+}
+
+.producto-img{
+
+    width:170px;
+
+    height:170px;
+
+}
+
+.producto-info{
+
+    width:100%;
+
+}
+
+.producto-nombre{
+
+    font-size:22px;
+
+}
+
+.producto-detalles{
+
+    font-size:15px;
+
+}
+
+.producto-precio{
+
+    font-size:24px;
+
+}
+
+/* Cantidad */
+
+.controles-cantidad{
+
+    justify-content:center;
+
+    margin-top:15px;
+
+}
+
+.btn-cantidad{
+
+    width:48px;
+
+    height:48px;
+
+}
+
+.numero-cantidad{
+
+    font-size:20px;
+
+}
+
+/* Observaciones */
+
+.comentario-producto{
+
+    font-size:15px;
+
+}
+
+/* Datos cliente */
+
+.datos-cliente{
+
+    width:95%;
+
+}
+
+.datos-cliente h3{
+
+    font-size:20px;
+
+}
+
+.datos-cliente input{
+
+    height:48px;
+
+}
+
+/* Carrito */
+
+.carrito-panel{
+
+    width:100%;
+
+    right:-100%;
+
+}
+
+.lista-carrito{
+
+    padding:15px;
+
+}
+
+/* Botón carrito */
+
+.btn-carrito{
+
+    width:60px;
+
+    height:60px;
+
+    bottom:90px;
+
+    right:15px;
+
+}
+
+/* Botón WhatsApp */
+
+.btn-whatsapp{
+
+    left:15px;
+
+    right:15px;
+
+    bottom:15px;
+
+    width:auto;
+
+    text-align:center;
+
+    padding:15px;
+
+    font-size:17px;
+
+}
+
+/* Botón llamar */
+
+.btn-llamar{
+
+    left:15px;
+
+    bottom:90px;
+
+    padding:14px 20px;
+
+    font-size:16px;
+
+}
+
+/* Footer */
+
+footer{
+
+    padding:25px 15px;
+
+}
+
+}

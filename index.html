@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>SR PATACON - menu digital</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="barra-superior">
+        <div class="total-recuadro">
+            Total Neto: <span id="total-precio" style="color: var(--oro-precio);">$0</span>
+        </div>
+       
+    </div>
+
+    <header>
+        <img src="img/logo-fondo.png..png" alt="Logo" class="logo-pequeno">
+        <h1><em>SR. PATACON</em></h1>
+        <p>¡más que un antojo!</p>
+    </header>
+    <!-- =========================
+     SLIDER SR. PATACÓN
+========================= -->
+
+<div class="slider">
+
+    <div class="slides">
+
+        <img src="img/logo-fondo.png..png" class="slide activo">
+
+        <img src="img/combo 2.png" class="slide">
+
+        <img src="img/patacon mixto.png" class="slide">
+
+        <img src="img/picada 1.png" class="slide">
+
+        <img src="img/salvajada familiar.png" class="slide">
+
+        <img src="img/zuiso cantuo.png" class="slide">
+
+    </div>
+
+    <div class="texto-slider">
+
+       <h5><em>🔥 Bienvenidos a SR. PATACÓN</em></h5>
+
+        <p>¡Más que un antojo!</p>
+
+    </div>
+
+</div>
+
+
+    <div class="contenedor">
+        <!-- =========================
+BUSCADOR DEL MENÚ
+========================= -->
+
+<div class="buscador-menu">
+
+    <input
+        type="text"
+        id="buscador"
+        placeholder="🔍 Buscar un producto..."
+        onkeyup="buscarProductos()">
+
+</div>
+
+       <div class="datos-cliente">
+
+    <h3>📍 Datos para el domicilio</h3>
+
+    <input
+        type="text"
+        id="nombre-cliente"
+        placeholder="👤 Tu nombre">
+
+    <input
+        type="text"
+        id="direccion"
+        placeholder="🏠 Dirección">
+
+    <input
+        type="text"
+        id="barrio"
+        placeholder="📍 Barrio">
+
+   
+
+</div>
+        <div class="titulo-seccion"><h2 class="titulo-seccion">
+            <img src="img/combo de patacon.png" alt="logo" style="width: 30px; height:auto; vertical-align:middle;">
+
+         Los Combos Sr. Patacón </h2></div>
+
+        <div class="producto-card" data-nombre="combito numero 1" data-precio="7000">
+            <div class="producto-img"><img src="img/combo 1.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">combito numero 1</div>
+                <div class="producto-detalles">5 patacones, 1 queso, 1 cervecero, 1 buty.</div>
+                <div class="producto-precio">$7.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Combito numero 2" data-precio="10000">
+            <div class="producto-img"><img src="img/combo 2.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Combito numero 2</div>
+                <div class="producto-detalles">7 patacones, 1 queso, 1 cervecero, 1 salchichón.</div>
+                <div class="producto-precio">$10.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Combito numero 3" data-precio="15000">
+           <div class="producto-img"><img src="img/combo 3.png" alt="producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Combito numero 3</div>
+                <div class="producto-detalles">12 patacones, 1 queso, 1 butifarra, 1 chorizo, 1 cervecero.</div>
+                <div class="producto-precio">$15.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Combo señor Patacón" data-precio="25000">
+            <div class="producto-img"><img src="img/combo 4.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Combo señor Patacón</div>
+                <div class="producto-detalles">18 patacones, 3 quesos, 3 butifarras, 3 cerveceros, 1 chorizo.</div>
+                <div class="producto-precio">$25.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Combo Familiar" data-precio="37000">
+            <div class="producto-img"><img src="img/combo familiar.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Combo Familiar</div>
+                <div class="producto-detalles">25 patacones, 5 quesos, 4 butifarras, 4 cerveceros, 3 chorizos.</div>
+                <div class="producto-precio">$37.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="titulo-seccion">🥪 Patacones Rellenos</div>
+
+        <div class="producto-card" data-nombre="Patacon Corroncho" data-precio="12000">
+            <div class="producto-img"><img src="img/patacon cantuo.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">patacon Corroncho</div>
+                <div class="producto-precio">$12.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Patacón El Bacanísimo" data-precio="16000">
+            <div class="producto-img"><img src="img/patacon mixto.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">patacon el Bacanísimo</div>
+                <div class="producto-precio">$16.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Patacón El Manda Más" data-precio="20000">
+            <div class="producto-img"><img src="img/patacon el manda mas.png "alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre"> patacon El Manda Más</div>
+                <div class="producto-precio">$20.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+
+        <div class="titulo-seccion">🥖 Cubanitos Santa Elena</div>
+        <!-- ================= CUBANITOS SANTA ELENA ================= -->
+
+<h2 class="titulo-categoria"> Cubanitos Santa Elena</h2>
+
+<!-- CORDON BLUE -->
+<div class="producto-card" data-nombre="Cubanito Cordon Blue" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/cubanitos.png" alt="Cubanito Cordon Blue">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Cordon Blue</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- SUIZO -->
+<div class="producto-card" data-nombre="Cubanito Suizo" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/cubanitos.png" alt="Cubanito Suizo">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Suizo</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- SUIZO POLLO -->
+<div class="producto-card" data-nombre="Cubanito Suizo Pollo" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/cubanitos.png" alt="Cubanito Suizo Pollo">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Suizo Pollo</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+  <div class="controles-cantidad">
+    <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+    <span class="numero-cantidad">0</span>
+    <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+</div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+<!-- SUIZO JAMÓN -->
+<div class="producto-card" data-nombre="Cubanito Suizo Jamón" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/cubanitos.png" alt="Cubanito Suizo Jamón">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Suizo Jamón</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- SUIZO MAÍZ -->
+<div class="producto-card" data-nombre="Cubanito Suizo Maíz" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/cubanitos.png" alt="Cubanito Suizo Maíz">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Suizo Maíz</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- HAWAIANO -->
+<div class="producto-card" data-nombre="Cubanito Hawaiano" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/cubanitos.png" alt="Cubanito Hawaiano">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Hawaiano</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+<!-- JAMÓN Y QUESO -->
+<div class="producto-card" data-nombre="Cubanito Jamón y Queso" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/cubanitos.png" alt="Cubanito Jamón y Queso">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Jamón y Queso</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- TOCINO POLLO -->
+<div class="producto-card" data-nombre="Cubanito Tocino Pollo" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/cubanitos.png" alt="Cubanito Tocino Pollo">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Tocino Pollo</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+
+<!-- TOCINO MAÍZ -->
+<div class="producto-card" data-nombre="Cubanito Tocino Maíz" data-precio="3500">
+
+    <div class="producto-img">
+        <img src="img/cubanitos.png" alt="Cubanito Tocino Maíz">
+    </div>
+
+    <div class="producto-info">
+        <div class="producto-nombre"> Cubanito Tocino Maíz</div>
+        <div class="producto-precio">$3.500</div>
+    </div>
+
+    <div class="controles-cantidad">
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,-1)">−</button>
+        <span class="numero-cantidad">0</span>
+        <button class="btn-cantidad" onclick="cambiarCantidad(this,1)">+</button>
+    </div>
+    <div class="observacion-producto">
+
+    <textarea
+        class="comentario-producto"
+        placeholder="Ej: sin salsa, sin cebolla, con más queso..."
+        rows="2">
+    </textarea>
+
+</div>
+
+</div>
+        <div class="titulo-seccion">🥩 Asados</div>
+
+        <div class="producto-card" data-nombre="Asado de Cerdo" data-precio="13000">
+            <div class="producto-img"><img src="img/cerdo asado.jpeg" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Asado de Cerdo</div>
+                <select class="select-interno" onchange="cambiarPrecioOp(this)">
+                    <option value="Patacón" data-p="13000">Con Patacón ($13.000)</option>
+                    <option value="Francesa" data-p="15000">Con Papa Francesa ($15.000)</option>
+                </select>
+                <div class="producto-precio" style="margin-top: 5px;">$13.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Asado de Pechuga" data-precio="13000">
+            <div class="producto-img"><img src="img/pechuga.png "alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Asado de Pechuga</div>
+                <select class="select-interno" onchange="cambiarPrecioOp(this)">
+                    <option value="Patacón" data-p="13000">Con Patacón ($13.000)</option>
+                    <option value="Francesa" data-p="15000">Con Papa Francesa ($15.000)</option>
+                </select>
+                <div class="producto-precio" style="margin-top: 5px;">$13.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Asado de Res" data-precio="15000">
+            <div class="producto-img"><img src="img/carne asada.png"Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Asado de Res</div>
+                <select class="select-interno" onchange="cambiarPrecioOp(this)">
+                    <option value="Patacón" data-p="15000">Con Patacón ($15.000)</option>
+                    <option value="Francesa" data-p="17000">Con Papa Francesa ($17.000)</option>
+                </select>
+                <div class="producto-precio" style="margin-top: 5px;">$15.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="titulo-seccion">🎉 Picadas</div>
+
+        <div class="producto-card" data-nombre="Picada" data-precio="25000">
+            <div class="producto-img"><img src="img/picada 1.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Picada Familiar</div>
+                <select class="select-interno" onchange="cambiarPrecioOp(this)">
+                    <option value="2 Personas" data-p="25000">Para 2 personas ($25.000)</option>
+                    <option value="3 Personas" data-p="35000">Para 3 personas ($35.000)</option>
+                    <option value="4 Personas" data-p="50000">Para 4 personas ($50.000)</option>
+                </select>
+                <div class="producto-precio" style="margin-top: 5px;">$25.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="titulo-seccion">👹 Salvajadas</div>
+
+        <div class="producto-card" data-nombre="Salvajada Costeña" data-precio="15000">
+            <div class="producto-img"><img src="img/salvajada familiar.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salvajada Costeña</div>
+                <div class="producto-precio">$15.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Salvajada Aletoza" data-precio="25000">
+            <div class="producto-img"><img src="img/salvajada aletoza.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salvajada Aletoza</div>
+                <div class="producto-precio">$25.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Salvajada Visajoza" data-precio="35000">
+            <div class="producto-img"><img src="img/salvajada visajoza.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salvajada Visajoza</div>
+                <div class="producto-precio">$35.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Salvajada La Exótica" data-precio="50000">
+            <div class="producto-img"><img src="img/salvajada la exotica.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salvajada La Exótica</div>
+                <div class="producto-precio">$50.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="titulo-seccion">🍟 Salchipapas & Suizos</div>
+
+        <div class="producto-card" data-nombre="Salchipapa Sencilla" data-precio="11000">
+            <div class="producto-img"><img src="img/salchipapa.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salchipapa Sencilla</div>
+                <div class="producto-precio">$11.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Salchipapa Especial" data-precio="20000">
+            <div class="producto-img"><img src="img/salchipapa 2.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salchipapa Especial</div>
+                <div class="producto-precio">$20.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Suizo Sencillo" data-precio="11000">
+            <div class="producto-img"><img src="img/zuiso.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Suizo Sencillo</div>
+                <div class="producto-precio">$11.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Suizo Especial" data-precio="20000">
+            <div class="producto-img"><img src="img/zuiso 2.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Suizo Especial</div>
+                <div class="producto-precio">$20.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Suizo Cantuo" data-precio="35000">
+            <div class="producto-img"><img src="img/zuiso cantuo.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Suizo Cantuo</div>
+                <div class="producto-precio">$35.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+
+        <div class="titulo-seccion">🥤 Gaseosas y Jugos Fríos</div>
+
+        <div class="producto-card" data-nombre="Coca Cola 250" data-precio="2500">
+            <div class="producto-img"><img src="img/coca cola 250 pequeña.png" alt="Coca-Cola"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Coca Cola 250 ml</div>
+                <div class="producto-precio">$2.500</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Coca Cola 400" data-precio="4000">
+            <div class="producto-img"><img src="img/coca cola 400 personal.png" alt="Coca-Cola"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Coca Cola 400 ml</div>
+                <div class="producto-precio">$4000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Coca Cola Litro" data-precio="8000">
+            <div class="producto-img"><img src="img/litro coca cola 1.5.png" alt="Coca-Cola"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Coca Cola Litro</div>
+                <div class="producto-precio">$8.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Jugo Hit Personal" data-precio="4000">
+            <div class="producto-img"><img src="img/jugo hit 400 personal.png" alt="Jugo Hit"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Jugo Hit Personal</div>
+                <div class="producto-precio">$4.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="agua" data-precio="1000">
+            <div class="producto-img"><img src="img/agua.png" alt="agua"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">agua</div>
+                <div class="producto-precio">$1000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Postobón Manzana Personal" data-precio="4000">
+            <div class="producto-img"><img src="img/postobon 400 personal.png "alt="Manzana"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Postobón Manzana Personal</div>
+                <div class="producto-precio">$4000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+       <div class="producto-card" data-nombre="Postobón Uva Puequeña" data-precio="1500">
+            <div class="producto-img"><img src="img/postobon 250 pequeña.png" alt="Uva"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Postobón Uva pequeña</div>
+                <div class="producto-precio">$1500</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+       <div class="titulo-seccion">➕ Adiciones Extras</div>
+
+        <div class="producto-card" data-nombre="Adición Queso" data-precio="1000">
+            <div class="producto-img"><img src="img/queso gratinado.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Queso Extra</div>
+                <div class="producto-precio">$1.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Chorizo" data-precio="3000">
+            <div class="producto-img"><img src="img/chorizo.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Chorizo Extra</div>
+                <div class="producto-precio">$3.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Salchichón" data-precio="1000">
+            <div class="producto-img"><img src="img/salchichon.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Salchichón Extra</div>
+                <div class="producto-precio">$1.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Butifarra" data-precio="1000">
+            <div class="producto-img"><img src="img/butifarra.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Butifarra Extra</div>
+                <div class="producto-precio">$1.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Suiza" data-precio="5000">
+            <div class="producto-img"><img src="img/zuisa.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Suiza Extra</div>
+                <div class="producto-precio">$5.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="producto-card" data-nombre="Adición Patacones" data-precio="3000">
+            <div class="producto-img"><img src="img/porcion de patacon.png" alt="Producto"></div>
+            <div class="producto-info">
+                <div class="producto-nombre">Patacones Extra</div>
+                <div class="producto-precio">$3.000</div>
+            </div>
+            <div class="controles-cantidad">
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, -1)">-</button>
+                <span class="numero-cantidad">0</span>
+                <button class="btn-cantidad" onclick="cambiarCantidad(this, 1)">+</button>
+            </div>
+        </div>
+
+    </div>
+    
+<!-- BOTÓN CARRITO -->
+<button id="btn-carrito" class="btn-carrito" onclick="abrirCarrito()">
+    🛒 <span id="contador-carrito">0</span>
+</button>
+
+<!-- BOTÓN PRODUCTOS -->
+<button id="btn-productos" class="btn-productos" onclick="abrirMenuProductos()">
+    🍔
+</button>
+
+<!-- PANEL DEL CARRITO -->
+<div id="carrito" class="carrito-panel">
+
+    <div class="carrito-header">
+        <h2>🛒 Mi Pedido</h2>
+        <button class="cerrar-carrito" onclick="cerrarCarrito()">✖</button>
+    </div>
+
+    <div id="lista-carrito" class="lista-carrito">
+        <p style="text-align:center;color:#999;">
+            Tu carrito está vacío
+        </p>
+    </div>
+
+    <div class="total-pedido">
+        <h3>
+            Total:
+            <span id="total-carrito">$0</span>
+        </h3>
+    </div>
+
+    <div class="carrito-footer">
+
+        <button class="btn-nequi" onclick="pagarNequi()">
+            💳 Pagar con Nequi
+        </button>
+
+        <button class="btn-vaciar" onclick="vaciarCarrito()">
+            🗑 Vaciar Pedido
+        </button>
+
+    </div>
+
+</div>
+
+<button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">
+    🟢 Enviar Pedido por WhatsApp
+</button>
+
+<a href="tel:+573145448787" class="btn-llamar">
+    📞 Llamar Ahora
+</a>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
